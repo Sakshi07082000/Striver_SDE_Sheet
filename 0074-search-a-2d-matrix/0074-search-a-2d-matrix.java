@@ -1,3 +1,5 @@
+//basic brute force solution
+
 class Solution 
 {
     public boolean searchMatrix(int[][] matrix, int target) 
