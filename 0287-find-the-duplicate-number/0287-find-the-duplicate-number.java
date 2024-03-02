@@ -17,6 +17,6 @@ class Solution
             slow=nums[slow];         // now move both by 1, collision point is dup element
             fast=nums[fast];
         }
-        return slow;
+        return slow;                 //return any of slow or fast
     }
 }
