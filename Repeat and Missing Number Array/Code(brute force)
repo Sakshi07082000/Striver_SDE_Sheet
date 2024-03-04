@@ -1,0 +1,31 @@
+//Brute force solution
+
+import java.util.*;
+public class Solution 
+{
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public int[] repeatedNumber(final int[] A) 
+    {
+        int repeatno=-1, missingno=-1;
+        int n=A.length;
+        
+        for(int i=1; i<=n; i++)
+        {
+            int count=0;
+            for(int j=0; j<n; j++)
+            {
+                if(A[j]==i)
+                    count++;
+            }
+            if(count==2)
+                repeatno=i;
+            else if(count==0)
+                missingno=i;
+                
+            if(repeatno!=-1 && missingno!=-1)
+                break;
+        } 
+        int[] ans = {repeatno, missingno};
+        return ans;
+    }
+}
