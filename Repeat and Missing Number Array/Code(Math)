@@ -1,0 +1,30 @@
+//Optimal soln using math
+
+import java.util.*;
+public class Solution 
+{
+    public int[] repeatedNumber(final int[] A) 
+    {
+        long n = A.length;
+        long SN = (n * (n + 1)) / 2;                    //sum of first n natural no
+        long S2N = (n * (n + 1) * (2 * n + 1)) / 6;     //sum of square of first n natural no
+
+        long S = 0, S2 = 0;
+        for (int i = 0; i < n; i++) 
+        {
+            S += A[i];                           //sum of the array elements
+            S2 += (long)A[i] * (long)A[i];       //sum of square of array elements
+        }
+
+        long val1 = S - SN;               //equation 1 (x-y)
+        long val2 = S2 - S2N;             //equation 2 (x^2-y^2)
+
+        val2 = val2 / val1;               //simplify eq2 -> x+y=val1/val2
+
+        long x = (val1 + val2) / 2;      //x-y= val1 and x+y= val2 when adding 2x=val1+val2 and x=(val1+val2)/2
+        long y = x - val1;               
+
+        int[] ans = {(int)x, (int)y};
+        return ans;
+    }
+}
