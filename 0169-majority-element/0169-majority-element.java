@@ -1,3 +1,5 @@
+//Brute force approach
+
 class Solution 
 {
     public int majorityElement(int[] nums) 
