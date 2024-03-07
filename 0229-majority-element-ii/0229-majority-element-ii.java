@@ -1,33 +1,49 @@
-// Brute force approach
+//Moore's algorithm
 
 class Solution 
 {
     public List<Integer> majorityElement(int[] nums) 
     {
-        List<Integer> list = new ArrayList<Integer>(); 
+        //counters for the two elements
+        int c1=0, c2=0, e1=0, e2=0;
+        List<Integer> list = new ArrayList<Integer>();
         
-        for (int i = 0; i < nums.length; i++) 
+        //Algorithm
+        for(int i=0; i<nums.length; i++)
         {
-            // for[2,2] o/p must be [2] and not [2,2]
-            // therefore, checking if en element already present in list
-            //only 0th index is checked, as soon as list index 1 size becomes 2 and break
-            if (list.size() == 0 || list.get(0) != nums[i]) 
+            if(c1==0 && nums[i]!=e2)
             {
-                int count = 0;
-                for (int j = i; j < nums.length; j++) 
-                {
-                    if (nums[i] == nums[j]) 
-                        count++;
-                }
-                if (count > (nums.length / 3))
-                    list.add(nums[i]);
+                c1=1;
+                e1=nums[i];
             }
-            
-            //when [3,2,2,2,3] o/p should be [3,2]
-            //if this stmt missing o/p [3,2,2]
-            if (list.size() == 2) 
-                break;
+            else if(c2==0 && nums[i]!=e1)
+            {
+                c2=1;
+                e2=nums[i];
+            }
+            else if(nums[i]==e1)
+                c1++;
+            else if(nums[i]==e2)
+                c2++;
+            else
+            {c1--; 
+             c2--;}
         }
+        
+        int count1=0, count2=0;
+        for(int i=0; i<nums.length; i++)
+        {
+            if(nums[i]==e1)
+                count1++;
+            else if(nums[i]==e2)
+                count2++;
+        }
+        
+        if(count1 > (nums.length/3))
+            list.add(e1);
+        if(count2 > (nums.length/3))
+            list.add(e2);
+        
         return list;
     }
 }
