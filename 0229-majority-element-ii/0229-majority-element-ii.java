@@ -4,25 +4,27 @@ class Solution
 {
     public List<Integer> majorityElement(int[] nums) 
     {
-        List<Integer> ls = new ArrayList<>(); 
-        int n = nums.length;
-        for (int i = 0; i < n; i++) 
+        List<Integer> list = new ArrayList<Integer>(); 
+        
+        for (int i = 0; i < nums.length; i++) 
         {
-            if (ls.size() == 0 || ls.get(0) != nums[i]) 
+            // for[2,2] o/p must be [2] and not [2,2]
+            // therefore, checking if en element already present in list
+            //only 0th index is checked, as soon as list index 1 size becomes 2 and break
+            if (list.size() == 0 || list.get(0) != nums[i]) 
             {
-                int cnt = 0;
-                for (int j = 0; j < n; j++) 
+                int count = 0;
+                for (int j = i; j < nums.length; j++) 
                 {
-                    if (nums[j] == nums[i]) 
-                    {
-                        cnt++;
-                    }
+                    if (nums[i] == nums[j]) 
+                        count++;
                 }
-                if (cnt > (n / 3))
-                    ls.add(nums[i]);
+                if (count > (nums.length / 3))
+                    list.add(nums[i]);
             }
-            if (ls.size() == 2) break;
+            if (list.size() == 2) 
+                break;
         }
-        return ls;
+        return list;
     }
 }
