@@ -6,6 +6,8 @@ class Solution
     {
         int count=0;
         int element=0;
+        
+        //Algorithm
         for(int i=0; i<nums.length; i++)
         {
             if(count == 0)
@@ -18,6 +20,8 @@ class Solution
             else
                 count--;
         }
+        
+        //Counting the no of occurence of 'element' 
         int count1=0;
         for(int i=0; i<nums.length; i++)
         {
