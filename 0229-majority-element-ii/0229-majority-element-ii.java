@@ -22,6 +22,9 @@ class Solution
                 if (count > (nums.length / 3))
                     list.add(nums[i]);
             }
+            
+            //when [3,2,2,2,3] o/p should be [3,2]
+            //if this stmt missing o/p [3,2,2]
             if (list.size() == 2) 
                 break;
         }
