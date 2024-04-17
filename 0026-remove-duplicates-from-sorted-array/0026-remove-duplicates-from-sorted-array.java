@@ -8,7 +8,7 @@ class Solution
             if(nums[i] != nums[i+1])
                 nums[j++] = nums[i];
         }
-        nums[j++] = nums[nums.length-1];
+        nums[j++] = nums[nums.length-1];  //to store the last element
         return j;
     }
 }
