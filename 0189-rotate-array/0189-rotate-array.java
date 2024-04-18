@@ -1,27 +1,26 @@
-//Brute force approach by using a temp array
+//Reversal approach
 
 class Solution 
 {
-    public void rotate(int[] nums, int k) 
+    public void reverse(int arr[], int start, int end)
     {
-        int j=0, n=nums.length;
-        int temp[]=new int[n];
-        
-        if(n==0)
-            return;
-        if((k=k%n)>n)
-            return;
-        for(int i=n-k; i<n; i++)
+        while(start<=end)
         {
-            temp[j++]=nums[i];     //copy last k elements to temp
-        }     
-        for(int i=0; i<=n-k-1; i++)
-        {
-            temp[j++]=nums[i];     //copy remaining elements 
-        }
-        for(int i=0; i<n; i++)
-        {
-            nums[i]=temp[i];
+            int temp=arr[start];
+            arr[start]=arr[end];
+            arr[end]=temp;
+            start++;
+            end--;
         }
     }
+    public void rotate(int[] nums, int k) 
+    {
+        int n=nums.length;
+        if(n==0 || (k=k%n)>n)
+            return;
+        reverse(nums, n-k, n-1);
+        reverse(nums, 0, n-k-1);
+        reverse(nums, 0, n-1);
+        
+    }    
 }
