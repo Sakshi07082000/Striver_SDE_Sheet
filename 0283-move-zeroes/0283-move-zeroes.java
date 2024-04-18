@@ -1,3 +1,5 @@
+//Basic brute force approach
+
 class Solution 
 {
     public void moveZeroes(int[] nums) 
