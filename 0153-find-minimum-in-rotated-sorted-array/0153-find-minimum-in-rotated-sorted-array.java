@@ -1,15 +1,26 @@
-//Brute force approach
+//Binary search approach
 
 class Solution 
 {
     public int findMin(int[] nums) 
     {
-        int min = Integer.MAX_VALUE;
-        for(int i=0; i<nums.length; i++)
+        int minval = Integer.MAX_VALUE;
+        int low=0, high=nums.length-1;
+        
+        while(low<=high)
         {
-            if(nums[i]<min)
-                min = nums[i];
+            int mid= (low+high)/2;
+            if(nums[low] <= nums[mid])
+            {
+                minval = Math.min(minval, nums[low]);
+                low = mid+1;
+            }
+            else
+            {
+                high = mid-1;
+                minval = Math.min(minval, nums[mid]);
+            }
         }
-        return min;
+        return minval;
     }
 }
