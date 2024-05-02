@@ -4,24 +4,22 @@ class Solution
 {
     public int findPeakElement(int[] nums) 
     {
-        if(nums.length==1)             //if array contains one element
+        if(nums.length==1 || nums[0]>nums[1])     
             return 0;
+        if(nums[nums.length-1]>nums[nums.length-2])
+            return nums.length-1;
         
-        for(int i=0; i<nums.length; i++)
+        int low=1, high=nums.length-2;
+        while(low<=high)
         {
-            if(i==0)                   //check for first element
-            {
-                if(nums[i]>nums[i+1])
-                    return i;
-            }
-            else if(i==nums.length-1)  //check for last element
-            {
-                if(nums[i]>nums[i-1])
-                    return i;
-            }
-            else if(nums[i-1]<nums[i] && nums[i]>nums[i+1])
-                return i;
+            int mid = (low+high)/2;
+            if(nums[mid-1]<nums[mid] && nums[mid]>nums[mid+1])
+                return mid;
+            else if(nums[mid]>nums[mid+1])
+                high = mid-1;
+            else 
+                low = mid+1;
         }
-        return 0;
+        return -1;
     }
 }
