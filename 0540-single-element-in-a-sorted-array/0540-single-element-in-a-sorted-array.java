@@ -1,31 +1,26 @@
-//Brute force approach
+//Binary search approach
 
 class Solution 
 {
     public int singleNonDuplicate(int[] nums) 
     {
-        int single=0;
         if(nums.length == 1)                  //if only one element return that element
-        {
             return nums[0];
-        }
-        for(int i=0; i<nums.length; i++)
+        if(nums[0]!=nums[1])
+            return nums[0];
+        if(nums[nums.length-1]!=nums[nums.length-2])
+            return nums[nums.length-1];
+        
+        int low=1, high=nums.length-2;
+        while(low<=high)
         {
-            if(i==0)                         //first element compared with its next element
-            {
-                if(nums[i]!=nums[i+1])
-                    return nums[i];
-            }
-            else if(i==nums.length-1)       //last element compared with its prev element
-            {
-                if(nums[i]!=nums[i-1])
-                    return nums[i];
-            }
-            else                          //middle elements compared with both next and prev
-            {
-                if(nums[i]!=nums[i+1] && nums[i-1]!=nums[i])
-                    return nums[i];
-            }
+            int mid = (low+high)/2;
+            if(nums[mid]!=nums[mid+1] && nums[mid]!=nums[mid-1])
+                return nums[mid];
+            if((mid%2==1 && nums[mid-1]==nums[mid]) || (mid%2==0 && nums[mid]==nums[mid+1]))
+                low = mid + 1;
+            else
+                high = mid - 1;
         }
         return -1;
     }
