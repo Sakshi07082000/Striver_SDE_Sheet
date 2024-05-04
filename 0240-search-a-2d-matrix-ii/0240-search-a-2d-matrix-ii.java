@@ -1,32 +1,20 @@
-//Binary search approach
+//Optimal approach(matrix sorted as 1,4,7,11,15 -> 19,22,24,30 and so on... )
 
 class Solution 
 {
-    public boolean Binarysearch(int[] arr, int target)
-    {
-        int low=0, high=arr.length-1;
-        while(low<=high)
-        {
-            int mid = (low+high)/2;
-            if(arr[mid]==target)
-                return true;
-            if(arr[mid]>target)
-                high=mid-1;
-            else
-                low=mid+1;
-        }
-        return false;
-    }
-    
     public boolean searchMatrix(int[][] matrix, int target) 
     {
-        int row= matrix.length;
+        int m =matrix.length, n= matrix[0].length;
+        int row=0, col=n-1;   //start from first row last col, i.e, element 15
         
-        for(int i=0; i<row; i++)
+        while(row<m && col>=0)
         {
-            boolean flag = Binarysearch(matrix[i], target);
-            if(flag == true)
+            if(matrix[row][col] == target)
                 return true;
+            if(matrix[row][col] > target)
+                col--;
+            else
+                row++;
         }
         return false;
     }
