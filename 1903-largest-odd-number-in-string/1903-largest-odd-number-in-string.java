@@ -1,3 +1,5 @@
+//Keep checking form behind, as sson as we get an odd no, stop and return all the numbers ahead of that number as it will be the largest odd no
+
 class Solution 
 {
     public String largestOddNumber(String num) 
