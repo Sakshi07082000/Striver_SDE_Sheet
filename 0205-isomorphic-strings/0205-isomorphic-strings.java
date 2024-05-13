@@ -2,19 +2,16 @@ class Solution
 {
     public boolean isIsomorphic(String s, String t) 
     {
-        //String builder makes cpde faster
-        StringBuilder sbS = new StringBuilder(s);
-        StringBuilder sbT = new StringBuilder(t);
         
-        if(sbS.length() != sbT.length())
+        if(s.length() != t.length())
             return false;
         
         HashMap <Character, Character> map = new HashMap<>();
         
-        for(int i=0; i<sbS.length(); i++)
+        for(int i=0; i<s.length(); i++)
         {
-            char strs = sbS.charAt(i);               //characters in string s
-            char strt = sbT.charAt(i);              //characters in string t
+            char strs = s.charAt(i);               //characters in string s
+            char strt = t.charAt(i);              //characters in string t
             
             if(!map.containsKey(strs))
             {
