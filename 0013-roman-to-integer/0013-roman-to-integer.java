@@ -2,27 +2,31 @@ class Solution
 {
     public int romanToInt(String s) 
     {
-        Map<Character, Integer> m = new HashMap<>();
+        Map<Character, Integer> mp = new HashMap<>();
         
-        m.put('I', 1);
-        m.put('V', 5);
-        m.put('X', 10);
-        m.put('L', 50);
-        m.put('C', 100);
-        m.put('D', 500);
-        m.put('M', 1000);
+        //putting (key,values) in map
+        mp.put('I', 1);
+        mp.put('V', 5);
+        mp.put('X', 10);
+        mp.put('L', 50);
+        mp.put('C', 100);
+        mp.put('D', 500);
+        mp.put('M', 1000);
         
         int ans = 0;
-        
-        for (int i = 0; i < s.length(); i++) 
+            
+        for(int i=0; i<s.length(); i++)
         {
-            if (i < s.length() - 1 && m.get(s.charAt(i)) < m.get(s.charAt(i + 1))) 
+            //i<s.length()-1 is imp in case of subtraction therefore not included in for
+            //since it should run till i<len for addition
+            if( i < s.length() - 1 && mp.get(s.charAt(i)) < mp.get(s.charAt(i+1)))
             {
-                ans -= m.get(s.charAt(i));
-            } else 
-            {
-                ans += m.get(s.charAt(i));
-            }
+                ans = ans + (mp.get(s.charAt(i+1)) - mp.get(s.charAt(i)));
+                i++;  //so that we skip the (i+1)th element
+            }   
+            
+            else
+                ans = ans + mp.get(s.charAt(i));  
         }
         return ans;
     }
