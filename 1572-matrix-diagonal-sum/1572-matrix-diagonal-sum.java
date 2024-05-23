@@ -12,7 +12,6 @@ class Solution
                     sum = sum + mat[i][j];      
             }
         }
-        System.out.println(sum);
         
         int j=mat.length-1;
         for(int i=0; i<mat.length; i++)
@@ -29,11 +28,9 @@ class Solution
                     sum = sum + mat[i][j];
                     j--;
                     break;
-                }
-                
+                }   
             }
-        }
-        
+        }  
         return sum;
     }
 }
