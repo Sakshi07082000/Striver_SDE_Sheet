@@ -5,7 +5,7 @@ class Solution
         int ans=0;
         int i=0;
         int sign=1;
-        int max=Integer.MAX_VALUE;
+        int max=Integer.MAX_VALUE;   //2147483647
         int min=Integer.MIN_VALUE;
         
         if(s.length()==0)
@@ -34,7 +34,7 @@ class Solution
             {
                 return (sign == 1) ? max : min;            
             }
-            ans=ans*10+digit; //if no overflow add to answer
+            ans=ans*10 + digit; //if no overflow add to answer
             i++;
         }
         return ans*sign; //return ans with sign
