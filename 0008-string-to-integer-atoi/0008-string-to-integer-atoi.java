@@ -30,7 +30,7 @@ class Solution
         {
             int digit = s.charAt(i)-'0'; //if integer, save it in digit
             
-            if(ans>max/10 || (ans==max/10 && digit>max%10)) //check for overflow condition
+            if(ans>max/10 || (ans==max/10 && digit>7)) //check for overflow condition
             {
                 return (sign == 1) ? max : min;            
             }
