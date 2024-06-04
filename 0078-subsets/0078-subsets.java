@@ -15,6 +15,7 @@ class Solution
     void findSubsets(int idx, int[] nums, List<Integer> result, List<List<Integer>> subsets) 
     {
         //when elements are finished add the subset found in every iteration to the final              //subset list return
+        
         if(idx == nums.length) 
         {
             subsets.add(new ArrayList<>(result));
