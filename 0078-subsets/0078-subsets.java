@@ -1,11 +1,12 @@
 class Solution 
 {
-    public List<List<Integer>> subsets(int[] nums) 
+    public List<List<Integer>> subsets(int[] nums) //nums/unprocessed
     {
         //here result will store all of the possible subsets
         List<Integer> result = new ArrayList<>(nums.length);
         
         //Since total no of subsets are 2^n and subset is a list of lists
+        //subset/processes
         List<List<Integer>> subsets = new ArrayList<>((int)Math.pow(2, nums.length));
         
         findSubsets(0, nums, result, subsets);
