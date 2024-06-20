@@ -16,7 +16,7 @@ class Solution
         {
             //check for duplicate elements
             //if ind=2 the i= 2 to end
-            //if ind == i then first occurence and not dupe
+            //if ind == i then it is first occurence and not dupe
             if(i!=index && nums[i]==nums[i-1])
                 continue;
             current.add(nums[i]);
