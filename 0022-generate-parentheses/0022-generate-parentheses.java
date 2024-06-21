@@ -9,6 +9,7 @@ class Solution
     
     void generate(String current, int open, int close, int n, List<String> ans)
     {
+        //since current is string not list, therefore no 'new Al<>(curr)'
         if(current.length() == 2*n)
         {
             ans.add(current);
