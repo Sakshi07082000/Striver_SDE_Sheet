@@ -26,8 +26,14 @@ class Solution
                 break;
             
             current.add(candidates[i]);
+            //picking an element
             getcombinationII(i+1, candidates, target-candidates[i], current, answer);
             current.remove(current.size()-1);
+            
+            // we are not picking an element in only two conditions 
+            //1. when element greater then target
+            //2. when element id duplicate
+            //we have laready checked both the cases therefore not including the not picked recursion call
         }
     }
 }
