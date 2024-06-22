@@ -20,7 +20,7 @@ class Solution
         for(int i=index; i<candidates.length; i++)
         {
             //check for repeated elements at different indexes [1,1,1,....]
-            if(i > index && candidates[i] == candidates[i-1])
+            if(i != index && candidates[i] == candidates[i-1])
                 continue;
             if(candidates[i] > target)
                 break;
