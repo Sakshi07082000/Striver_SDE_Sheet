@@ -17,10 +17,13 @@ class Solution {
         
         for(int i=ind; i<s.length(); i++)
         {
+            //if extracted string is palindrome then add to current
             if(palin(s, ind, i))
             {
+                //i+1 since substring function removes last index
                 current.add(s.substring(ind, i+1));
                 palinpart(i+1, s, current, answer);
+                //remove when backtrack
                 current.remove(current.size()-1);
             }
         }
