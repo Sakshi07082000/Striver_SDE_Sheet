@@ -17,26 +17,27 @@ class Solution
         
         if(head == null || head.next == null)
             return head;
-        while(temp != null && temp.next != null)
+        
+        while(temp != null && temp.next != null)   //for odd pointers
         {
             ans.add(temp.val);
             temp = temp.next.next;
         }
-        if(temp!=null)
+        if(temp!=null)    //if any element is left
             ans.add(temp.val);
         
         temp = head.next;
-        while(temp != null && temp.next != null)
+        while(temp != null && temp.next != null)    //for even pointers
         {
             ans.add(temp.val);
             temp = temp.next.next;
         }
-        if(temp!=null)
+        if(temp!=null)   //if any element is left
             ans.add(temp.val);
         
         temp = head;
         int i = 0;
-        while(temp != null)
+        while(temp != null)   // replacing the val of temp with ans elements
         {
             temp.val = ans.get(i);
             i++;
