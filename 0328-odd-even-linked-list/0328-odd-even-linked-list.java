@@ -12,37 +12,21 @@ class Solution
 {
     public ListNode oddEvenList(ListNode head) 
     {
-        ListNode temp = head;
-        ArrayList<Integer> ans = new ArrayList<>();
-        
         if(head == null || head.next == null)
             return head;
         
-        while(temp != null && temp.next != null)   //for odd pointers
+        ListNode odd = head, even = head.next;
+        ListNode evenhead = head.next;         /*this is needed since at the end last 
+                                                 odd should point to first even */
+       
+        while(even != null && even.next != null)   //since we know even is one step ahead of odd
         {
-            ans.add(temp.val);
-            temp = temp.next.next;
+            odd.next = odd.next.next;
+            even.next = even.next.next;
+            odd = odd.next;
+            even = even.next;
         }
-        if(temp!=null)    //if any element is left
-            ans.add(temp.val);
-        
-        temp = head.next;
-        while(temp != null && temp.next != null)    //for even pointers
-        {
-            ans.add(temp.val);
-            temp = temp.next.next;
-        }
-        if(temp!=null)   //if any element is left
-            ans.add(temp.val);
-        
-        temp = head;
-        int i = 0;
-        while(temp != null)   // replacing the val of temp with ans elements
-        {
-            temp.val = ans.get(i);
-            i++;
-            temp = temp.next;
-        }
-        return head;
+        odd.next = evenhead;        //last odd element's next is first even element
+        return head;           //since odd = head therefore return hed
     }
 }
