@@ -19,7 +19,7 @@ class Solution
         
         while(hare != null && hare.next !=null)
         {
-            prev = turtle;
+            prev = turtle;            //prev pointer will mark prev element to mid/turtle.
             turtle = turtle.next;
             hare = hare.next.next;
         }
