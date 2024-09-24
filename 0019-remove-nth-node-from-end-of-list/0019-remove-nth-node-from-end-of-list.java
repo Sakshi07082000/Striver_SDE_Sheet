@@ -16,31 +16,23 @@ class Solution
 {
     public ListNode removeNthFromEnd(ListNode head, int n) 
     {
-        int size = 0;
-        ListNode curr = head;
+        ListNode fast = head, slow = head;
         
         if(head.next == null)
             return null;
         
-        while(curr != null)   //find size of the list
+        for(int i=0; i<n; i++)
+            fast = fast.next;
+        
+        if(fast == null)
+            return head.next;
+        
+        while(fast.next != null)
         {
-            curr = curr.next;   //1 2 3 4 5 null(it will go till null then while is checked)
-            size ++;            //0 1 2 3 4 5
+            fast = fast.next;
+            slow = slow.next;
         }
-        
-        int N = size - n;  // N will be one place prev to nth node from end
-        
-        if(n == size)
-            return head.next;    //if n=size then it will be head of LL from behind
-        
-        curr = head;
-        int i=0;
-        while(i < N-1)
-        {
-            curr = curr.next;
-            i ++;
-        }
-        curr.next = curr.next.next;
+        slow.next = slow.next.next;
         return head;
     }
 }
