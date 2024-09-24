@@ -21,10 +21,10 @@ class Solution
         if(head.next == null)
             return null;
         
-        for(int i=0; i<n; i++)
+        for(int i=0; i<n; i++)   //make fast pointer stand on nth nodes from start
             fast = fast.next;
         
-        if(fast == null)
+        if(fast == null)    //if n=size of LL then from above for loop fast = null
             return head.next;
         
         while(fast.next != null)
