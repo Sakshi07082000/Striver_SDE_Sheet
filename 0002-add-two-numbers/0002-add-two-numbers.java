@@ -12,6 +12,7 @@ class Solution
 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) 
     {
+        //one node ahead of the actual head of sum LL
         ListNode sumhead = new ListNode(); 
         ListNode temp = sumhead; 
         int carry = 0;
@@ -28,11 +29,14 @@ class Solution
                 sum += l2.val; 
                 l2 = l2.next; 
             }
-            
+            //first iteration- (2+5)=7+0
             sum += carry; 
             carry = sum / 10; 
+            //node nf new sum LL
             ListNode node = new ListNode(sum % 10); 
-            temp.next = node; 
+            //temp/sumhead points to first node 'node' of sum LL
+            temp.next = node;
+            //temp moves to first node of sum LL
             temp = temp.next; 
         }
         return sumhead.next;
