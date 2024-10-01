@@ -10,9 +10,8 @@
  */
 class Solution 
 {       
-    public ListNode get_kth_node(ListNode head, int k, int l)
+    public ListNode get_kth_node(ListNode temp, int k, int l)
     {
-        ListNode temp = head;
         k = k%l;
         int kth = l - k -1;
         while(temp != null && kth>0)
@@ -30,7 +29,7 @@ class Solution
         
         ListNode tail = head;
         int len = 1;
-        while(tail.next != null)
+        while(tail.next != null)  //finding tail and len of LL
         {
             tail = tail.next;
             len++;
@@ -41,8 +40,8 @@ class Solution
         
         k = k%len;
         
-        ListNode newtail = get_kth_node(head, k, len);
-        tail.next = head;
+        ListNode newtail = get_kth_node(head, k, len); //finds one node prev to kth node
+        tail.next = head; 
         head = newtail.next;
         newtail.next = null;
         
