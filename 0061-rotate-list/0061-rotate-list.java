@@ -15,7 +15,7 @@ class Solution
         ListNode temp = head;
         k = k%l;
         int kth = l - k -1;
-        while(kth>0)
+        while(temp != null && kth>0)
         {
             temp = temp.next;
             kth--;
