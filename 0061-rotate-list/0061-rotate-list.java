@@ -35,7 +35,7 @@ class Solution
             len++;
         }
 
-        if(k%len == 0)
+        if(k%len == 0)  // when k == len or k==multiple of len the LL will be returned as it is
             return head;
         
         k = k%len;
