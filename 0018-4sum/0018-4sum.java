@@ -25,11 +25,19 @@ class Solution
             
                 while(left < right)
                 {
+                    //remember to add 'long', else wrong answer
                     long sum = (long)nums[i] + (long)nums[j] + (long)nums[left] + (long)nums[right];
                 
                     if(sum == target)
                     {
-                        arr.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
+                        List<Integer> temp = new ArrayList<>();
+                        temp.add(nums[i]);
+                        temp.add(nums[j]);
+                        temp.add(nums[left]);
+                        temp.add(nums[right]);
+                        arr.add(temp);
+                        
+                        //arr.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
                 
                         // check for duplicate elements for left
                         while (left < right && nums[left] == nums[left + 1])
