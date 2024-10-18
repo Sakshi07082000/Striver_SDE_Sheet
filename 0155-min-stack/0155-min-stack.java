@@ -1,13 +1,16 @@
-class Pair {
+class Pair 
+{
     int x, y;
-    Pair(int x, int y) {
-        this.x = x;
-        this.y = y;
+    Pair(int x, int y) 
+    {
+        this.x = x;  //store val
+        this.y = y;  //store min
     }
 }
+
 class MinStack 
 {
-Stack < Pair > st;
+    Stack <Pair> st;
     public MinStack() 
     {
         st = new Stack < > ();
@@ -16,11 +19,11 @@ Stack < Pair > st;
     public void push(int val) 
     {
         int min;
-        if (st.isEmpty()) {
-            min = val;
-        } else {
+        if (st.isEmpty()) 
+            min = val; 
+        else
+            //comparing the value to be pushed and second value in the top pair
             min = Math.min(st.peek().y, val);
-        }
         st.push(new Pair(val, min));
     }
     
