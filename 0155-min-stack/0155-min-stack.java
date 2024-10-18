@@ -17,6 +17,7 @@ class MinStack
     
     public void pop() 
     {
+        //if(st.peek() == minst.peek()) this will give wrong answer
         if(st.peek().equals(minst.peek()))
             minst.pop();
         st.pop();
