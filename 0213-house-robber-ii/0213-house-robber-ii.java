@@ -8,10 +8,7 @@ class Solution
 
         for(int i=1; i<nums.size(); i++)
         {
-            int pick = nums.get(i);
-            if(i>1)
-                pick = pick + prev2;
-                
+            int pick = nums.get(i) + prev2;                
             int notpick = 0 + prev1;
 
             int max = Math.max(pick, notpick);
