@@ -20,4 +20,16 @@
 | ------- |
 | [0063-unique-paths-ii](https://github.com/Sakshi07082000/100DaysOfCode/tree/master/0063-unique-paths-ii) |
 | [0064-minimum-path-sum](https://github.com/Sakshi07082000/100DaysOfCode/tree/master/0064-minimum-path-sum) |
+## Math
+|  |
+| ------- |
+| [0231-power-of-two](https://github.com/Sakshi07082000/100DaysOfCode/tree/master/0231-power-of-two) |
+## Bit Manipulation
+|  |
+| ------- |
+| [0231-power-of-two](https://github.com/Sakshi07082000/100DaysOfCode/tree/master/0231-power-of-two) |
+## Recursion
+|  |
+| ------- |
+| [0231-power-of-two](https://github.com/Sakshi07082000/100DaysOfCode/tree/master/0231-power-of-two) |
 <!---LeetCode Topics End-->
