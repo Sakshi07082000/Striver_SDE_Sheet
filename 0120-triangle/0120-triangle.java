@@ -1,29 +1,36 @@
-class Solution {
-    public int minimumTotal(List<List<Integer>> triangle) {
-        // create dp table
-        int[][] memo = new int[triangle.size()][triangle.get(triangle.size() - 1).size()];
-        for (int[] row: memo)
-            Arrays.fill(row, Integer.MAX_VALUE);
-        
-        // start from the top of the triangle
-        return recurse(triangle, 0, 0, memo);
+//Memoization Approach
+
+class Solution 
+{
+    public int minimumTotal(List<List<Integer>> triangle) 
+    {
+        int r = triangle.size();
+        //int c = triangle.get(0).size(); gives runtime error
+        int c = triangle.get(triangle.size()-1).size();
+        int[][] dp = new int[r][c];
+
+        for(int[] row: dp)
+            Arrays.fill(row, -1);
+
+        //no fix ending point, therefore, starting from top(0,0)
+        return minimum(0, 0, triangle, dp);
     }
     
-    private int recurse(List<List<Integer>> triangle, int row, int col, int[][] memo) {
-        // base case
-        if (row == triangle.size())
-            return 0;
+    private int minimum(int r, int c, List<List<Integer>> triangle, int[][] dp) 
+    {
+        //if reached last row then that element should be taken
+        if (r == triangle.size()-1)
+            return triangle.get(r).get(c);
         
-        // check dp table
-        if (memo[row][col] != Integer.MAX_VALUE)
-            return memo[row][col];
+        if(dp[r][c] != -1)
+            return dp[r][c];
         
-        // either go to [row + 1, col] or [row + 1, col + 1]
-        int remain = Math.min(recurse(triangle, row + 1, col, memo),
-                              recurse(triangle, row + 1, col + 1, memo));
-        
-        // combine answer with current value
-        memo[row][col] = triangle.get(row).get(col) + remain;
-        return memo[row][col];
+        //pick the element and call recursion
+        int down = triangle.get(r).get(c) + minimum(r+1, c, triangle, dp);
+        int diagonal = triangle.get(r).get(c) + minimum(r+1, c+1, triangle, dp);
+
+        dp[r][c] = Math.min(down, diagonal);
+
+        return dp[r][c];
     }
 }
